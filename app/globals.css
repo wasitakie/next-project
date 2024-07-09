@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Prompt", sans-serif;;
+}
+
+.country{
+    @apply flex flex-col mx-auto xl:flex-row gap-5 z-0 max-w-[1440px] relative;
+}
+.conutry-title{
+    @apply  2xl:text-[72px] sm:text-[64px] text-[50px] font-normal;
+}
+.conutry-subtitle{
+    @apply  font-light text-black w-full text-lg mt-5 
+}
+.contry-container-image{
+    @apply flex justify-end items-end w-full xl:flex-[1.5];
+}
+.country-image{
+    @apply w-[90%] xl:w-full relative h-[200px] ;
+}
