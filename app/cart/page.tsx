@@ -1,11 +1,7 @@
-"use client";
-
 import React from "react";
 
-export default function page() {
-  return (
-    <div>
-      <h1>shopping Cart </h1>
-    </div>
-  );
+type Props = {};
+
+export default function page({}: Props) {
+  return <div>page</div>;
 }

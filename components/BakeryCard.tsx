@@ -2,9 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 import { Bakery } from "types";
-import { DollarSign } from "lucide-react";
+import { DollarSign, ShoppingBag } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "store/slices/cartSlices";
+import { RootState } from "store/store";
 export default function BakeryCard() {
   const [dataBy, setDataBy] = useState([]);
 
@@ -12,11 +16,17 @@ export default function BakeryCard() {
     const res = await fetch("/bakery/");
     const data = await res.json();
     setDataBy(data);
+    //console.log(data);
   };
 
   useEffect(() => {
     data();
   }, []);
+
+  const dispatch = useDispatch();
+  const addToCart = (data: Bakery) => {
+    dispatch(addItem(data));
+  };
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-6">
@@ -27,14 +37,15 @@ export default function BakeryCard() {
           {dataBy.map((bakery: Bakery) => (
             <div key={bakery.cakeid} className="">
               <div className="w-full h-[300px]  overflow-hidden bg-slate-100 rounded-md ">
-                <Image
-                  src={`/images/${bakery.cake_image}`}
-                  alt="shop"
-                  width={300}
-                  height={300}
-                  className="w-full h-3/5  object-cover object-center"
-                />
-
+                <Link href={`/product/${bakery.cakeid}`}>
+                  <Image
+                    src={`/images/${bakery.cake_image}`}
+                    alt="shop"
+                    width={300}
+                    height={300}
+                    className="w-full h-3/5  object-cover object-center"
+                  />
+                </Link>
                 <h4 className="text-sm font-normal   mt-2">
                   {bakery.cake_name}
                 </h4>
@@ -42,18 +53,11 @@ export default function BakeryCard() {
                   <DollarSign className="w-4 h-6" />
                   {bakery.slices}
                 </div>
-                <div className="">
-                  <Link href={`/product/${bakery.cakeid}`}>
-                    <div className="text-end">
-                      <span className="bg-blue-400 text-xl  rounded-xl  ">
-                        More
-                      </span>
-                    </div>
-                  </Link>
+                <div className="px-2 text-end">
+                  <Button onClick={() => addToCart(bakery)}>
+                    <ShoppingBag size={16} cursor={"pointer"} />
+                  </Button>
                 </div>
-                {/* <div className="flex justify-end px-2 ">
-                  <ShoppingBasket className="rounded-full bg-[#faedcd] cursor-pointer hover:bg-orange-500 " />
-                </div> */}
               </div>
             </div>
           ))}

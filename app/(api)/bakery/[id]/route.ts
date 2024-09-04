@@ -12,30 +12,31 @@ export async function GET(
   return NextResponse.json(rows);
 }
 
-export async function PUT(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  const data = await request.formData();
-  //const name = data.get("name");
-  const image = data.getAll("image") as File[];
-  const slices = data.get("slices");
+// export async function PUT(
+//   request: NextRequest,
+//   { params }: { params: { id: string } }
+// ) {
+//   const data = await request.formData();
+//   //const name = data.get("name");
+//   const image = data.getAll("image") as File[];
+//   const slices = data.get("slices");
+//   const description = data.get("description");
 
-  const nameFile = [];
+//   const nameFile = [];
 
-  for (const files of image) {
-    if (typeof files === "object" && "arrayBuffer" in files) {
-      const fil = files;
-      const buffer = Buffer.from(await fil.arrayBuffer());
-      await writeFile(`public/images/${fil.name}`, buffer);
+//   for (const files of image) {
+//     if (typeof files === "object" && "arrayBuffer" in files) {
+//       const fil = files;
+//       const buffer = Buffer.from(await fil.arrayBuffer());
+//       await writeFile(`public/images/${fil.name}`, buffer);
 
-      nameFile.push(fil.name);
-    }
-  }
+//       nameFile.push(fil.name);
+//     }
+//   }
 
-  await connect.execute(
-    `UPDATE cake SET cake_image= ?,slices = ? WHERE cakeid = ?`,
-    [nameFile, slices, params.id]
-  );
-  return NextResponse.json({ success: true, message: "successful" });
-}
+//   await connect.execute(
+//     `UPDATE cake SET cake_image= ?,description = ?,slices = ? WHERE cakeid = ?`,
+//     [nameFile, description, slices, params.id]
+//   );
+//   return NextResponse.json({ success: true, message: "successful" });
+// }

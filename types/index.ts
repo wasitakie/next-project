@@ -1,22 +1,27 @@
-import { MouseEventHandler } from "react";
-
-export interface CustomButtonProps {
-  title: string;
-  buttonStyle?: string;
-  //   handleClick?: MouseEventHandler<HTMLButtonElement>;
-}
 export interface Bakery {
-  cakeid: string;
+  cakeid: number;
   cake_name: string;
+  cake_description: string;
   cake_image: any;
   slices: number;
   slug: string;
+  quantity: number;
 }
 
 export interface fullBakery {
-  cakeid: string;
+  cakeid: number;
   cake_name: string;
+  cake_description: string;
   cake_image: any;
   slices: number;
   slug: string;
+}
+
+export interface Product {
+  cakeid: number;
+  cake_name: string;
+  cake_description: string;
+  cake_image: any;
+  slices: number;
+  quantity: number;
 }
