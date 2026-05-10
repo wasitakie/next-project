@@ -1,3 +1,8 @@
+export interface CustomButtonProps {
+  title: string;
+  buttonStyle: string;
+}
+
 export interface Bakery {
   cakeid: number;
   cake_name: string;
@@ -6,6 +11,7 @@ export interface Bakery {
   slices: number;
   slug: string;
   quantity: number;
+  category_name: string;
 }
 
 export interface fullBakery {
@@ -14,7 +20,6 @@ export interface fullBakery {
   cake_description: string;
   cake_image: any;
   slices: number;
-  slug: string;
 }
 
 export interface Product {

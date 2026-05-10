@@ -4,12 +4,12 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <footer className="w-full text-gray-700 bg-[#90e0ef] body-font">
+      <footer className="w-full text-gray-700 bg-[#bde0fe] body-font">
         <div className="container flex flex-col flex-wrap px-5 py-24 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
           <div className="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
             <div className="flex items-center justify-center font-medium  title-font md:justify-start">
               <Image
-                src={"/images/logo.png"}
+                src={"/logo.png"}
                 alt="logoBakery"
                 width={50}
                 height={50}
@@ -17,9 +17,7 @@ const Footer = () => {
               />
             </div>
             <p className="mt-2 text-sm text-gray-500">BAKERY SHOP</p>
-            <div className="mt-4">
-              
-            </div>
+            <div className="mt-4"></div>
           </div>
           <div className="flex flex-wrap flex-grow mt-10 -mb-10 text-center md:pl-20 md:mt-0 md:text-left">
             <div className="w-full px-4 lg:w-1/4 md:w-1/2">
