@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import ShoppingCart from "@/components/ShoppingCart";
-import { RootState } from "store/store";
+import { RootState } from "@/store/store";
 import { Button } from "./ui/button";
 import { useSession, signOut } from "next-auth/react";
 import {
@@ -15,7 +15,6 @@ import {
   LogOut,
   Heart,
   SearchCheckIcon,
-  SearchIcon,
 } from "lucide-react";
 import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";

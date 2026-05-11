@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import "../style/globals.css";
 
 import Footer from "@/components/Footer";
-import AuthProviders from "libs/providers/auth/Provider";
-import Providers from "libs/providers/providers";
+import AuthProviders from "@/libs/providers/auth/Provider";
+import Providers from "@/libs/providers/providers";
 import { Toaster } from "@/components/ui/toaster";
 import Navber from "@/components/Navber";
 export const metadata: Metadata = {
