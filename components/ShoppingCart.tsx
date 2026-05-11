@@ -12,16 +12,14 @@ import {
 import Image from "next/image";
 import { ShoppingBag, DollarSign } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "store/store";
+import { RootState } from "@/store/store";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import {
-  addItem,
   CartItem,
   decrementQTY,
   incrementQTY,
-} from "store/slices/cartSlices";
-import { Input } from "./ui/input";
+} from "@/store/slices/cartSlices";
 
 export default function ShoppingCart() {
   const dispatch = useDispatch();

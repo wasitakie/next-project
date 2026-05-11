@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import { useDispatch } from "react-redux";
-import { fullBakery } from "types";
-import { addItem, CartItem } from "store/slices/cartSlices";
-import { useToast } from "./hooks/use-toast";
+import { fullBakery } from "@/types";
+import { addItem } from "@/store/slices/cartSlices";
+import { useToast } from "@/components/hooks/use-toast";
 export default function AddToBag({ product }: { product: fullBakery }) {
   const dispatch = useDispatch();
   const { toast } = useToast();
