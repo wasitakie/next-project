@@ -11,22 +11,23 @@ import { useToast } from "@/components/hooks/use-toast";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Button } from "./ui/button";
+import { data } from "@/libs/data/product";
 export default function BakeryCard() {
   const { data: session } = useSession();
   const [dataBy, setDataBy] = useState([]);
   const [isLike, setIsLike] = useState(false);
   const { toast } = useToast();
-  const data = async () => {
-    const res = await fetch("/api/bakery/");
-    const data = await res.json();
-    setDataBy(data);
-    setIsLike(data);
-    //console.log(data);
-  };
+  // const data = async () => {
+  //   const res = await fetch("/api/bakery/");
+  //   const data = await res.json();
+  //   setDataBy(data);
+  //   setIsLike(data);
+  //   //console.log(data);
+  // };
 
-  useEffect(() => {
-    data();
-  }, []);
+  // useEffect(() => {
+  //   data();
+  // }, []);
 
   // const dispatch = useDispatch();
   // const addToCart = (data: Bakery) => {
@@ -66,9 +67,9 @@ export default function BakeryCard() {
           </div>
         </div>
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 xl:grid-cols-3 md:grid-cols-2 lg:grid-cols-6 2xl:grid-cols-4 mt-16 sm:grid-cols-2 xl:gap-x-8">
-          {dataBy.map((bakery: Bakery, index) => (
+          {data.map((bakery, index) => (
             <div
-              key={bakery.cakeid}
+              key={bakery.cake_id}
               className="animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
@@ -83,7 +84,7 @@ export default function BakeryCard() {
                     NEW
                   </div>
                 </div>
-                <Link href={`/product/${bakery.cakeid}`}>
+                <Link href={`/product/${bakery.cake_id}`}>
                   <div className="relative overflow-hidden rounded-[16px]">
                     <Image
                       src={`/images/${bakery.cake_image || "/images/bakery.png"}`}
@@ -100,7 +101,7 @@ export default function BakeryCard() {
                     {bakery.cake_name}
                   </h3>
                   <p className="text-slate-600 font-medium text-sm">
-                    {bakery.category_name}
+                    {bakery.cake_category_name}
                   </p>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-1">

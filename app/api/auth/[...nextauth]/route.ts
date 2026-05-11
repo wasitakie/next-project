@@ -1,4 +1,4 @@
-import connect from "libs/config";
+import connect from "@/libs/config";
 import NextAuth from "next-auth/next";
 import CredentialsProviders from "next-auth/providers/credentials";
 import GoogleProviders from "next-auth/providers/google";
@@ -7,11 +7,7 @@ import { compare } from "bcryptjs";
 const handler = NextAuth({
   session: {
     strategy: "jwt",
-    // jwt: {
-    //   secret: process.env.JWT_SECRET,
-    //   encryption: true,
-    // },
-    // maxAge: 30 * 24 * 60 * 60, // 30 day
+    maxAge: 30 * 24 * 60 * 60, // 30 day
   },
   providers: [
     GoogleProviders({

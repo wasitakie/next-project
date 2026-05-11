@@ -4,7 +4,7 @@ export interface CustomButtonProps {
 }
 
 export interface Bakery {
-  cakeid: number;
+  cake_id: number;
   cake_name: string;
   cake_description: string;
   cake_image: any;
@@ -15,7 +15,7 @@ export interface Bakery {
 }
 
 export interface fullBakery {
-  cakeid: number;
+  cake_id: number;
   cake_name: string;
   cake_description: string;
   cake_image: any;

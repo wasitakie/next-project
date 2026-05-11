@@ -77,9 +77,9 @@ export default function ShoppingCart() {
                       <Image
                         src={`/images/emptycart.png`}
                         alt="emptyProduct"
-                        width={200}
-                        height={200}
-                        className="relative mx-auto object-cover animate-float"
+                        width={300}
+                        height={300}
+                        className="relative z-10 mx-auto object-cover animate-float"
                       />
                     </div>
                     <h1 className="text-2xl font-bold text-gray-800 mt-8 mb-2">

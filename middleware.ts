@@ -1,3 +1,16 @@
-export { default } from "next-auth/middleware";
+import { withAuth } from "next-auth/middleware";
 
-export const config = { matcher: ["/cart"] };
+export default withAuth(
+  function (req) {
+  },
+  { 
+    callbacks: {
+      authorized: ({ token }) => !!token,
+    },
+    pages: {
+      signIn: "/signin",
+    },
+  }
+);
+
+export const config = { matcher: ["/cart", "/profile"] };
