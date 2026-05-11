@@ -3,7 +3,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import React from "react";
 import Image from "next/image";
-import { RootState } from "store/store";
+import { RootState } from "@/store/store";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import {
@@ -12,9 +12,9 @@ import {
   clearCart,
   decrementQTY,
   incrementQTY,
-} from "store/slices/cartSlices";
+} from "@/store/slices/cartSlices";
 import { DollarSign } from "lucide-react";
-import { Bakery } from "types";
+import { Bakery } from "@/types";
 import { Input } from "@/components/ui/input";
 import { Session } from "next-auth";
 import { useSession } from "next-auth/react";
@@ -25,7 +25,7 @@ export default function Cart() {
   const totalQuantity = items.reduce((total, item) => total + item.quantity, 0);
   const totalPrice = items.reduce(
     (total, item) => total + item.slices * item.quantity,
-    0
+    0,
   );
   // vat thailand 7% and america 15%
   const vatAmerica = +totalPrice * 0.15;
@@ -86,7 +86,7 @@ export default function Cart() {
               {items.map((item) => (
                 <div
                   className="flex pb-6 mt-5 space-x-10 items-center p-5 border rounded-xl  border-gray-200"
-                  key={item.cakeid}
+                  key={item.cake_id}
                 >
                   <Image
                     src={`/images/${item.cake_image}`}
@@ -107,7 +107,7 @@ export default function Cart() {
                     <div className="flex">
                       <Button
                         onClick={() => {
-                          disbarment(item.cakeid);
+                          disbarment(item.cake_id);
                         }}
                       >
                         -

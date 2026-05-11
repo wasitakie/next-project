@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface CartItem {
-  cakeid: number;
+  cake_id: number;
   cake_name: string;
   cake_description: string;
   cake_image: any;
@@ -22,7 +22,7 @@ const cartSlice = createSlice({
   reducers: {
     addItem: (state, action: PayloadAction<Omit<CartItem, "quantity">>) => {
       const exitingItems = state.items.find(
-        (item) => item.cakeid === action.payload.cakeid
+        (item) => item.cake_id === action.payload.cake_id
       );
       if (exitingItems) {
         exitingItems.quantity += 1;
@@ -32,17 +32,17 @@ const cartSlice = createSlice({
     },
     removeFromCart: (state, action) => {
       const exitingItems = state.items.find(
-        (item) => item.cakeid === action.payload.cakeid
+        (item) => item.cake_id === action.payload.cake_id
       );
       if (exitingItems) {
         state.items = state.items.filter(
-          (item) => item.cakeid !== action.payload.cakeid
+          (item) => item.cake_id !== action.payload.cake_id
         );
       }
     },
     incrementQTY: (state, action) => {
       const exitingItems = state.items.find(
-        (item) => item.cakeid === action.payload.cakeid
+        (item) => item.cake_id === action.payload.cake_id
       );
       if (exitingItems) {
         exitingItems.quantity += 1;
@@ -50,7 +50,7 @@ const cartSlice = createSlice({
     },
     decrementQTY: (state, action: PayloadAction<{ id: number }>) => {
       const exitingItems = state.items.find(
-        (item) => item.cakeid === action.payload.id
+        (item) => item.cake_id === action.payload.id
       );
       if (exitingItems && exitingItems.quantity > 1) {
         exitingItems.quantity -= 1;

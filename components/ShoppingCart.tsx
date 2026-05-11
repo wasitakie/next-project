@@ -99,7 +99,7 @@ export default function ShoppingCart() {
                     <div className="space-y-4">
                       {items.map((item) => (
                         <div
-                          key={item.cakeid}
+                          key={item.cake_id}
                           className="flex bg-white rounded-xl border border-gray-100 p-4 hover:shadow-lg transition-all duration-300"
                         >
                           <div className="relative">
@@ -131,7 +131,7 @@ export default function ShoppingCart() {
                               <Button
                                 size="sm"
                                 variant="outline"
-                                onClick={() => disbarment(item.cakeid)}
+                                onClick={() => disbarment(item.cake_id)}
                                 className="hover:bg-pink-50 hover:text-pink-600 hover:border-pink-300 transition-all duration-300"
                               >
                                 -

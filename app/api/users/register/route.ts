@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import connect from "libs/config";
+import connect from "@/libs/config";
 import { writeFile } from "fs/promises";
 import bcrypt from "bcryptjs";
 

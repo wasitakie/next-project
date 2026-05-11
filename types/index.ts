@@ -9,7 +9,6 @@ export interface Bakery {
   cake_description: string;
   cake_image: any;
   slices: number;
-  slug: string;
   quantity: number;
   category_name: string;
 }

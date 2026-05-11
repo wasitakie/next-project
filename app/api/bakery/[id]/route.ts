@@ -1,5 +1,5 @@
 import { writeFile } from "fs/promises";
-import connect from "libs/config";
+import connect from "@/libs/config";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
